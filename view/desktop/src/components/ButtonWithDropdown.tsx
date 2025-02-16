@@ -52,7 +52,7 @@ const triggerStyles = cva(
       size: {
         xs: "px-2      py-0",
         sm: "px-3      py-0.5",
-        md: "px-[17px] py-[3px]", //figma
+        md: "px-[17px] py-[3px]",
         lg: "px-5.5    py-1.5",
       },
     },
@@ -96,7 +96,7 @@ const dropdownTriggerStyles = cva("flex items-center justify-center gap-1.5 text
     size: {
       xs: "px-0.5",
       sm: "px-1",
-      md: "px-1.5", //figma
+      md: "px-1.5",
       lg: "px-2",
     },
   },
@@ -127,8 +127,8 @@ const dropdownTriggerStyles = cva("flex items-center justify-center gap-1.5 text
 const loaderStyle = cva("Loader absolute flex items-center justify-center rounded-sm inset-0 w-full h-full ", {
   variants: {
     variant: {
-      solid: `bg-[#0065ff]`,
-      soft: `bg-[#F1F1F1]`,
+      solid: `  bg-[#0065ff]`,
+      soft: `   bg-[#F1F1F1]`,
       outline: "border border-[#E0E0E0]",
       ghost: null,
     },
