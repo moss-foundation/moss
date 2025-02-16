@@ -56,7 +56,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Variants: Story = {
-  args: {},
+  argTypes: {
+    variant: {
+      control: { disable: true },
+    },
+  },
   render: (args) => {
     return (
       <table className="border-separate border-spacing-2">
@@ -84,7 +88,11 @@ export const Variants: Story = {
 };
 
 export const Sizes: Story = {
-  args: {},
+  argTypes: {
+    size: {
+      control: { disable: true },
+    },
+  },
   render: (args) => {
     return (
       <table className="border-separate border-spacing-2">
