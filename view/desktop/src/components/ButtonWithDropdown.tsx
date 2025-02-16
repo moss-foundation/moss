@@ -6,6 +6,7 @@ import { cn } from "@/utils";
 
 interface ButtonWithDropDownProps extends Omit<ComponentPropsWithoutRef<"div">, "id"> {
   variant?: "solid" | "soft" | "outline" | "ghost";
+  size?: "xs" | "sm" | "md" | "lg";
   icon?: Icons;
   label?: string;
   compact?: boolean;
@@ -13,7 +14,6 @@ interface ButtonWithDropDownProps extends Omit<ComponentPropsWithoutRef<"div">, 
   defaultAction?: boolean;
   disabled?: boolean;
   loading?: boolean;
-  size?: "xs" | "sm" | "md" | "lg";
 }
 
 const buttonStyles = cva("relative box-border w-min rounded-sm transition", {
@@ -50,10 +50,10 @@ const triggerStyles = cva(
         false: null,
       },
       size: {
-        xs: "px-2      py-0",
-        sm: "px-3      py-0.5",
-        md: "px-[17px] py-[3px]",
-        lg: "px-5.5    py-1.5",
+        xs: "px-2      py-0     min-h-5",
+        sm: "px-3      py-0.5   min-h-6",
+        md: "px-[17px] py-[3px] min-h-6.5",
+        lg: "px-5.5    py-1.5   min-h-8",
       },
     },
     compoundVariants: [
