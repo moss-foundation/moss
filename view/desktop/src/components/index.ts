@@ -1,3 +1,4 @@
+export * from "./ActionsGroup";
 export * from "../layouts/index";
 export * from "./Menu";
 export * from "./Accordion";
@@ -23,3 +24,4 @@ export * from "./Badge";
 export * from "./Link";
 export * as ContextMenu from "./Menu/ContextMenu/ContextMenu";
 export * as DropdownMenu from "./Menu/DropdownMenu/DropdownMenu";
+export * from "./ButtonWithDropdown";
