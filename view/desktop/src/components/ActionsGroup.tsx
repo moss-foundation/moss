@@ -191,3 +191,5 @@ export const ActionsGroup = ({
     </div>
   );
 };
+
+export default ActionsGroup;
