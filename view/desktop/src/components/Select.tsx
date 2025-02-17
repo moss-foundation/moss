@@ -33,7 +33,7 @@ const SelectScrollDownButton = forwardRef<
 
 export interface SelectTriggerProps extends ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger> {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
-  variant?: "outlined" | "soft" | "mixed" | "plain" | "bottomOutlined";
+  variant?: "outlined" | "soft" | "mixed" | "bottomOutlined";
   disabled?: boolean;
 }
 
@@ -44,40 +44,40 @@ const selectTriggerStyles = cva(
       variant: {
         outlined: `
           text-(--moss-select-text-outlined)
-          border border-(--moss-select-border-soft)
-          data-[invalid]:border-[rgb(239,68,68)] focus:data-[invalid]:outline-[rgb(239,68,68)]
-          data-[valid]:border-[rgb(22,163,74)] focus:data-[valid]:outline-[rgb(22,163,74)]
+          border border-(--moss-select-border-outlined)
+                data-[valid]:border-[rgb(22,163,74)]
+          focus:data-[valid]:outline-[rgb(22,163,74)]
+                data-[invalid]:border-[rgb(239,68,68)]
+          focus:data-[invalid]:outline-[rgb(239,68,68)]
         `,
         soft: `
           text-(--moss-select-text-soft)
           outline-none background-(--moss-select-bg-soft)
-          focus:brightness-95 dark:focus:brightness-105
-          data-[invalid]:bg-[rgb(254,226,226)]
-          dark:data-[invalid]:bg-[rgb(153,27,27,0.25)]
-          data-[valid]:bg-[rgb(220,252,231)]
+          focus:brightness-95
+          dark:focus:brightness-105
+               data-[valid]:bg-[rgb(220,252,231)]
           dark:data-[valid]:bg-[rgba(22,101,52,0.25)]
+               data-[invalid]:bg-[rgb(254,226,226)]
+          dark:data-[invalid]:bg-[rgb(153,27,27,0.25)]
         `,
         mixed: `
           text-(--moss-select-text-mixed)
-          shadow-sm shadow-gray-900/5 dark:shadow-gray-900/35 border border-(--moss-select-border-soft)
           background-(--moss-select-bg-mixed)
-          data-[invalid]:border-[rgb(220,38,38)] focus:data-[invalid]:outline-[rgb(220,38,38)]
-          data-[valid]:border-[rgb(22,163,74)] focus:data-[valid]:outline-[rgb(22,163,74)]
-        `,
-        plain: `
-          text-(--moss-select-text-plain)
-          outline-none bg-transparent
-          hover:background-(--moss-select-bg-plain)
-          data-[valid]:text-[rgb(74,222,128)]
-          data-[invalid]:text-[rgb(248,113,113)]
-          shadow-sm shadow-gray-900/5 dark:shadow-gray-900/35
+          shadow-sm shadow-gray-900/5
+          dark:shadow-gray-900/35
+          border border-(--moss-select-border-mixed)
+                data-[valid]:border-[rgb(22,163,74)]
+          focus:data-[valid]:outline-[rgb(22,163,74)]
+                data-[invalid]:border-[rgb(220,38,38)]
+          focus:data-[invalid]:outline-[rgb(220,38,38)]
         `,
         bottomOutlined: `
           text-(--moss-select-text-bottomOutlined)
           rounded-none transition-[border] px-0
-          border-b border-black dark:border-white focus:border-b-2 focus:border-[rgb(37,99,235)]
-          data-[invalid]:border-[rgb(248,113,113)]
+          border-b border-(--moss-select-border-bottomOutlined)
+          focus:border-b-2 focus:border-[rgb(37,99,235)]
           data-[valid]:border-[rgb(74,222,128)]
+          data-[invalid]:border-[rgb(248,113,113)]
         `,
       },
       size: {
@@ -129,7 +129,7 @@ const SelectContent = forwardRef<
         {...props}
         ref={forwardedRef}
         className={cn(
-          `data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade overflow-hidden rounded-md bg-white p-1 shadow-lg will-change-[opacity,transform] dark:bg-[rgb(24,24,27)]`,
+          `data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade overflow-hidden rounded-md border border-[rgb(228,228,231)] bg-white p-1 shadow-lg will-change-[opacity,transform] dark:border-[rgb(39,39,42)] dark:bg-[rgb(24,24,27)]`,
           className
         )}
       >

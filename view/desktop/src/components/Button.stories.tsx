@@ -120,6 +120,7 @@ export const Disabled: Story = {
 export const Loading: Story = {
   args: {
     loading: true,
+    href: "https://www.google.com",
   },
   render: (args) => {
     return (
@@ -128,7 +129,11 @@ export const Loading: Story = {
           {sizes.map((size) => {
             return (
               <td key={size}>
-                <Button.Root {...args} size={size}>
+                <Button.Root
+                  {...args}
+                  size={size}
+                  onClick={() => console.log("This should not be clickable and link should not work")}
+                >
                   <Button.Label>Button</Button.Label>
                 </Button.Root>
               </td>
