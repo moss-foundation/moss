@@ -45,7 +45,7 @@ const dividerStyle = cva("min-w-px h-full", {
 const loaderStyle = cva("Loader absolute flex items-center justify-center rounded-sm inset-0 w-full h-full ", {
   variants: {
     variant: {
-      solid: `   background-(--bg-solid)`,
+      solid: `   background-(--bg-solid) text-white`,
       outlined: `background-(--bg-outlined)`,
       soft: `    background-(--bg-soft)`,
       ghost: `   background-transparent`,

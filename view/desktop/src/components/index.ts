@@ -2,7 +2,6 @@ export * from "./Accordion";
 export * from "./AccordionsList";
 export * from "./ActionsGroup";
 export * as Button from "./Button";
-export * from "./ButtonWithDropdown";
 export * from "./Badge";
 export * as Checkbox from "./Checkbox";
 export * from "./DropIndicator";
