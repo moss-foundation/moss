@@ -85,7 +85,12 @@ export const ButtonDropdown = ({
           </Button.Root>
         </DM.Trigger>
 
-        <DM.Content className="z-50 flex flex-col text-black" onPointerDownOutside={() => setOpen(false)}>
+        <DM.Content
+          className="z-50 flex flex-col text-black"
+          onPointerDownOutside={() => setOpen(false)}
+          align="start"
+          alignOffset={30}
+        >
           {props.children}
         </DM.Content>
       </DM.Root>
