@@ -110,9 +110,37 @@ export const Disabled: Story = {
   },
   render: (args) => {
     return (
-      <Button.Root {...args}>
-        <Button.Label>Button</Button.Label>
-      </Button.Root>
+      <table className="border-separate border-spacing-2">
+        <tr>
+          <th />
+          {variants.map((variant) => {
+            return <th className="text-left capitalize">{variant}</th>;
+          })}
+        </tr>
+        {intents.map((intent) => {
+          return (
+            <tr key={intent}>
+              <th className="text-left capitalize">{intent}</th>
+              {variants.map((variant) => {
+                return (
+                  <td key={variant}>
+                    <Button.Root
+                      {...args}
+                      intent={intent}
+                      variant={variant}
+                      onClick={() => {
+                        console.log("clicked");
+                      }}
+                    >
+                      <Button.Label>Button</Button.Label>
+                    </Button.Root>
+                  </td>
+                );
+              })}
+            </tr>
+          );
+        })}
+      </table>
     );
   },
 };
@@ -126,20 +154,27 @@ export const Loading: Story = {
     return (
       <table className="border-separate border-spacing-2">
         <tr>
+          <th />
           {sizes.map((size) => {
-            return (
-              <td key={size}>
-                <Button.Root
-                  {...args}
-                  size={size}
-                  onClick={() => console.log("This should not be clickable and link should not work")}
-                >
-                  <Button.Label>Button</Button.Label>
-                </Button.Root>
-              </td>
-            );
+            return <th className="text-left capitalize">{size}</th>;
           })}
         </tr>
+        {variants.map((variant) => {
+          return (
+            <tr key={variant} className="align-bottom">
+              <th className="text-left capitalize">{variant}</th>
+              {sizes.map((size) => {
+                return (
+                  <td key={size}>
+                    <Button.Root {...args} variant={variant} size={size}>
+                      <Button.Label>Button</Button.Label>
+                    </Button.Root>
+                  </td>
+                );
+              })}
+            </tr>
+          );
+        })}
       </table>
     );
   },

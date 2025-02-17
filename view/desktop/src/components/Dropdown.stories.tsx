@@ -169,18 +169,29 @@ export const Loading: Story = {
       <table className="border-separate border-spacing-2">
         <tbody>
           <tr>
+            <th />
             {sizes.map((size) => {
-              return (
-                <td key={size}>
-                  <Dropdown {...args} size={size} label={args.label}>
-                    <div>Item 1</div>
-                    <div>Item 2</div>
-                    <div>Item 3</div>
-                  </Dropdown>
-                </td>
-              );
+              return <th className="text-left capitalize">{size}</th>;
             })}
           </tr>
+          {variants.map((variant) => {
+            return (
+              <tr key={variant}>
+                <th className="text-left capitalize">{variant}</th>
+                {sizes.map((size) => {
+                  return (
+                    <td key={size}>
+                      <Dropdown {...args} label={args.label} variant={variant} size={size}>
+                        <div>Item 1</div>
+                        <div>Item 2</div>
+                        <div>Item 3</div>
+                      </Dropdown>
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     );
