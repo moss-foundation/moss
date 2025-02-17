@@ -43,11 +43,11 @@ const buttonRootStyles = cva(
       },
       disabled: {
         false: null,
-        true: "grayscale-70 cursor-not-allowed hover:brightness-100 active:brightness-100 active:pointer-events-none",
+        true: "grayscale-70 cursor-not-allowed hover:brightness-100 active:brightness-100 pointer-events-none",
       },
       loading: {
         false: null,
-        true: "[&>:not(.LoadingIcon)]:opacity-0 cursor-wait hover:brightness-100 active:brightness-100",
+        true: "[&>:not(.LoadingIcon)]:opacity-0 pointer-events-none",
       },
       Component: {
         a: "max-w-max",
@@ -146,15 +146,17 @@ export const Root = forwardRef<HTMLButtonElement & HTMLAnchorElement, ButtonProp
       Children.toArray(children).length === 1 &&
       Children.toArray(children).some((child) => isValidElement(child) && child.type === Icon);
 
+    const content = typeof children === "string" ? <span>{children}</span> : children;
+
     return (
       <Component
         ref={forwardedRef}
         href={disabled || loading ? undefined : href}
-        className={cn(buttonRootStyles({ intent, variant, size, disabled, loading, className, Component, iconOnly }))}
+        className={cn(buttonRootStyles({ intent, variant, size, disabled, loading, Component, iconOnly }), className)}
         disabled={disabled || loading}
         {...props}
       >
-        {children}
+        {content}
 
         {loading && (
           <div className="LoadingIcon absolute inset-0 grid place-items-center">

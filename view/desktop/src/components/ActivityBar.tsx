@@ -111,3 +111,5 @@ const ActivityBarButton = forwardRef<HTMLDivElement, ActivityBarButtonProps>(
     );
   }
 );
+
+export default ActivityBar;

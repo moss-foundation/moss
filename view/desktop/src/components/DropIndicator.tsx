@@ -62,3 +62,5 @@ export function DropIndicator({ edge, gap = 0, strokeSize = 2, terminalSize = 8,
     />
   );
 }
+
+export default DropIndicator;
