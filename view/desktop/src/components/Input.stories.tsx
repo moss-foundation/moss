@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import * as icons from "@repo/icongen";
 import { Meta, StoryObj } from "@storybook/react";
 
 import Input from "./Input";
@@ -20,11 +21,17 @@ const meta: Meta = {
       </div>
     ),
   ],
+  argTypes: {
+    iconLeft: { control: { type: "select" }, options: Object.keys(icons) },
+    iconRight: { control: { type: "select" }, options: Object.keys(icons) },
+  },
   args: {
     disabled: false,
     variant: "outlined",
     size: "md",
     placeholder: "Placeholder",
+    iconLeft: undefined,
+    iconRight: undefined,
   },
 } satisfies Meta<typeof Input>;
 
@@ -65,6 +72,22 @@ export const WithCaption: Story = {
         </label>
         <Input {...args} id="WithCaptionWithLabel" />
         <caption className="text-sm font-normal text-[rgb(113,113,122)]">Enter your name</caption>
+      </div>
+    );
+  },
+};
+
+export const WithIcons: Story = {
+  args: {
+    iconLeft: "HeadBarAccount",
+    iconRight: "HeadBarCustomizeLayout",
+  },
+  render: (args) => {
+    return (
+      <div className="flex flex-col gap-2">
+        {sizes.map((size) => {
+          return <Input {...args} size={size} placeholder={size} />;
+        })}
       </div>
     );
   },
