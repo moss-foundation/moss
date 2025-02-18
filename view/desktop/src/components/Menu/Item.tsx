@@ -25,8 +25,8 @@ export const Item = forwardRef<ItemElement, ItemProps>(
         className={cn(
           "flex items-center gap-1.5 rounded py-0.5 pr-5 pl-[7px]",
           {
-            "cursor-not-allowed opacity-50": props.disabled,
-            "cursor-pointer hover:bg-[#D4E2FF] hover:outline-hidden": !props.disabled,
+            "cursor-not-allowed grayscale-100": props.disabled,
+            "cursor-pointer hover:bg-[#D4E2FF] hover:outline-hidden dark:hover:text-black": !props.disabled,
           },
           className
         )}
