@@ -39,7 +39,7 @@ type Entry = {
 
 const SelectItem = ({ entry }: { entry: Entry }) => {
   return (
-    <Select.Item value={entry.name} className="items-center pl-7">
+    <Select.Item value={entry.name} className="pl-7">
       <Select.ItemIndicator />
       <Select.ItemText>
         <span role="img" aria-label={entry.name} className="mr-2">

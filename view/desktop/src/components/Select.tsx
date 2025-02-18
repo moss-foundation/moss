@@ -129,7 +129,7 @@ const SelectContent = forwardRef<
         {...props}
         ref={forwardedRef}
         className={cn(
-          `data-[side=top]:animate-slideDownAndFade data-[side=right]:animate-slideLeftAndFade data-[side=bottom]:animate-slideUpAndFade data-[side=left]:animate-slideRightAndFade overflow-hidden rounded-md border border-[rgb(228,228,231)] bg-white p-1 shadow-lg will-change-[opacity,transform] dark:border-[rgb(39,39,42)] dark:bg-[rgb(24,24,27)]`,
+          `z-50 rounded-lg border border-[#c9ccd6] bg-white px-3 py-1.5 shadow-lg dark:border-[rgb(45,45,50)] dark:bg-[rgb(24,24,27)]`,
           className
         )}
       >
@@ -152,22 +152,26 @@ const SelectItemIndicator = forwardRef<
   </SelectPrimitive.ItemIndicator>
 ));
 
-const selectItemStyles = cva(
-  `relative flex select-none text-sm text-gray-700 dark:text-gray-300
-  rounded-lg
-  data-[highlighted]:text-white gap-2 px-6 h-8 leading-none outline-none
-  data-[disabled]:text-gray-600
-  dark:data-[disabled]:text-gray-400
-  data-[disabled]:opacity-50
-  data-[highlighted]:bg-[rgb(37,99,235)] pl-7 items-center`
-);
+const selectItemStyles = cva(`
+    relative flex items-center gap-1.5 rounded py-1 pr-5 pl-[7px] select-none outline-none
+
+         text-gray-700
+    dark:text-gray-300
+
+    data-[disabled]:grayscale-100
+    data-[disabled]:cursor-not-allowed
+
+    data-[highlighted]:bg-[#D4E2FF]
+    dark:data-[highlighted]:bg-[rgb(34,34,36)]
+    data-[highlighted]:cursor-pointer
+  `);
 
 const SelectItem = forwardRef<
   ElementRef<typeof SelectPrimitive.Item>,
   ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
 >(({ className, children, ...props }, forwardedRef) => {
   return (
-    <SelectPrimitive.Item {...props} ref={forwardedRef} className={cn(selectItemStyles({ className }), className)}>
+    <SelectPrimitive.Item {...props} ref={forwardedRef} className={cn(selectItemStyles(), className)}>
       {children}
     </SelectPrimitive.Item>
   );
