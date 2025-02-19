@@ -2,7 +2,10 @@ import { useState } from "react";
 
 import { Meta, StoryObj } from "@storybook/react";
 
+import Button from "./Button";
 import * as Switch from "./Switch";
+
+const sizes = ["xs", "sm", "md", "lg"] as const;
 
 const meta: Meta = {
   title: "Desktop/Switch",
@@ -56,6 +59,27 @@ export const Standalone: Story = {
           </Switch.Root>
         </div>
       </div>
+    );
+  },
+};
+
+export const Sizes: Story = {
+  render: (...args) => {
+    return (
+      <table className="border-separate border-spacing-2">
+        {sizes.map((size) => {
+          return (
+            <tr className="">
+              <th className="text-left capitalize">{size}</th>
+              <td>
+                <Switch.Root {...args} size={size}>
+                  <Switch.Thumb />
+                </Switch.Root>
+              </td>
+            </tr>
+          );
+        })}
+      </table>
     );
   },
 };

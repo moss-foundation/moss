@@ -18,7 +18,7 @@ export interface ButtonProps extends HTMLAttributes<HTMLButtonElement | HTMLAnch
 }
 
 const buttonRootStyles = cva(
-  "relative flex items-center cursor-pointer justify-center rounded-lg transition duration-150 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 outline-blue-600",
+  "relative flex items-center cursor-pointer justify-center rounded-sm transition duration-150 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 outline-blue-600",
   {
     variants: {
       intent: {
@@ -35,19 +35,19 @@ const buttonRootStyles = cva(
         ghost: `   background-transparent     text-(--text-ghost)    [box-shadow:var(--boxShadow-ghost)]    dark:border-(--border-ghost) hover:background-(--bg-ghost) hover:[box-shadow:var(--border-ghost)_0px_0px_0px_1px] active:brightness-150 `,
       },
       size: {
-        "xs": "h-7",
-        "sm": "h-8",
-        "md": "h-9",
-        "lg": "h-10",
-        "xl": "h-12",
+        "xs": "h-[22px]",
+        "sm": "h-[26px]",
+        "md": "h-[30px]",
+        "lg": "h-[34px]",
+        "xl": "h-[38px]",
       },
       disabled: {
         false: null,
-        true: "grayscale-70 cursor-not-allowed hover:brightness-100 active:brightness-100 active:pointer-events-none",
+        true: "grayscale-70 cursor-not-allowed hover:brightness-100 active:brightness-100 pointer-events-none",
       },
       loading: {
         false: null,
-        true: "[&>:not(.LoadingIcon)]:opacity-0 cursor-progress",
+        true: "[&>:not(.LoadingIcon)]:opacity-0 pointer-events-none",
       },
       Component: {
         a: "max-w-max",
@@ -146,15 +146,17 @@ export const Root = forwardRef<HTMLButtonElement & HTMLAnchorElement, ButtonProp
       Children.toArray(children).length === 1 &&
       Children.toArray(children).some((child) => isValidElement(child) && child.type === Icon);
 
+    const content = typeof children === "string" ? <span>{children}</span> : children;
+
     return (
       <Component
         ref={forwardedRef}
-        href={href}
-        className={cn(buttonRootStyles({ intent, variant, size, disabled, loading, className, Component, iconOnly }))}
+        href={disabled || loading ? undefined : href}
+        className={cn(buttonRootStyles({ intent, variant, size, disabled, loading, Component, iconOnly }), className)}
         disabled={disabled || loading}
         {...props}
       >
-        {children}
+        {content}
 
         {loading && (
           <div className="LoadingIcon absolute inset-0 grid place-items-center">

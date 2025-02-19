@@ -80,3 +80,5 @@ export const AccordionsList = () => {
     </div>
   );
 };
+
+export default AccordionsList;
